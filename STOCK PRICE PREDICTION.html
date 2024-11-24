@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stock Price Prediction</h1>
+        <h2>Interactive Prototype</h2>
+    </header>
+
+    <section>
+        <h2>Enter Stock Data</h2>
+        <form id="stockForm">
+            <label for="stockName">Stock Name:</label>
+            <input type="text" id="stockName" name="stockName" placeholder="Enter stock name" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="price">Stock Price:</label>
+            <input type="number" id="price" name="price" placeholder="Enter stock price" required>
+
+            <button type="button" onclick="predictStock()">Predict</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Prediction Results</h2>
+        <div id="results" style="font-size: 18px; color: #333; margin-top: 10px;">
+            Enter data to see predictions.
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Stock Price Prediction</p>
+    </footer>
+
+    <script>
+        function predictStock() {
+            // Simulate a prediction process
+            const stockName = document.getElementById("stockName").value;
+            const date = document.getElementById("date").value;
+            const price = document.getElementById("price").value;
+
+            if (stockName && date && price) {
+                const predictedPrice = (parseFloat(price) * (1 + Math.random() * 0.1)).toFixed(2); // Random increase for simulation
+                document.getElementById("results").innerHTML = `
+                    <p><strong>Stock Name:</strong> ${stockName}</p>
+                    <p><strong>Date:</strong> ${date}</p>
+                    <p><strong>Predicted Price:</strong> $${predictedPrice}</p>
+                `;
+            } else {
+                document.getElementById("results").textContent = "Please fill in all fields.";
+            }
+        }
+    </script>
+</body>
+</html>
